@@ -44,15 +44,15 @@
           </li>
           <li class="nav-item ">
             <a href="pos" class="nav-link ">
-              <i class="nav-icon fas fa-edit"></i>
+              <i class="nav-icon fas fa-barcode"></i>
               <p>
                 POS
               </p>
             </a>
           </li>
           <li class="nav-item ">
-            <a href="table" class="nav-link ">
-              <i class="nav-icon fa fa-table"></i>
+            <a href="products" class="nav-link ">
+              <i class="nav-icon fa fa-box"></i>
               <p>
                 Products
               </p>
@@ -60,7 +60,7 @@
           </li>
           <li class="nav-item ">
             <a href="orders" class="nav-link ">
-              <i class="nav-icon fa fa-table"></i>
+              <i class="nav-icon fa fa-receipt"></i>
               <p>
                 Orders
               </p>
@@ -68,7 +68,7 @@
           </li>
           <li class="nav-item ">
             <a href="Order-status" class="nav-link ">
-              <i class="nav-icon fa fa-table"></i>
+              <i class="nav-icon fa fa-list-check"></i>
               <p>
                 Orders Status
               </p>
@@ -76,7 +76,7 @@
           </li>   
           <li class="nav-item ">
             <a href="users" class="nav-link ">
-              <i class="nav-icon fa fa-table"></i>
+              <i class="nav-icon fa fa-users"></i>
               <p>
                 Users
               </p>
@@ -84,7 +84,7 @@
           </li>
           <li class="nav-item ">
             <a href="roles" class="nav-link ">
-              <i class="nav-icon fa fa-table"></i>
+              <i class="nav-icon fa fa-money-bill"></i>
               <p>
                 Roles
               </p>

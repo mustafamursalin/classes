@@ -22,10 +22,25 @@ if(isset($_GET['page'])){
         include_once('views/pages/users/create.php');
         
     }
+    elseif($page == 'edit-user'){
+        include_once('views/pages/users/edit.php');
+        
+    }
+    elseif($page == 'products'){
+        include_once('views/pages/products/manage.php');
+        
+    }
+    elseif($page == 'create-products'){
+        include_once('views/pages/products/create.php');
+        
+    }
     else{
         include_once('views/pages/dashboard.php');
     }
 }
+    else{
+        include_once('views/pages/dashboard.php');
+    }
 
 
 

@@ -1,4 +1,9 @@
         <?php
+            include_once 'config/base.php';
+            require_once 'config/db.php';
+        ?>
+        
+        <?php
         include_once 'config/base.php';
         ?>
 
@@ -7,7 +12,7 @@
         <!-- End Header Area -->
 
         <!-- Start Preloader Area -->
-            <?php include_once 'views/layouts/preloader.php'; ?>
+            <?php //include_once 'views/layouts/preloader.php'; ?>
         <!-- End Preloader Area -->
 
         <!-- Start Sidebar Area -->

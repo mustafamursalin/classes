@@ -1,5 +1,6 @@
 <?php
 include_once 'config/base.php';
+require_once 'config/db.php';
 ?>
 
 
@@ -11,7 +12,7 @@ include_once 'config/base.php';
 <div class="wrapper">
 
   <!-- Preloader -->
-  <?php include_once 'views/layouts/preloader.php'; ?>
+  <!-- <?php //include_once 'views/layouts/preloader.php'; ?> -->
 
   <!-- Navbar -->
   <?php include_once 'views/layouts/nav.php'; ?>
