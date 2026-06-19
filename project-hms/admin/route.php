@@ -12,16 +12,14 @@ if(isset($_GET['page'])){
     elseif($page == 'table' || $page == 'table.php'){
         include_once 'views/pages/table.php';
     }
-    elseif($page == 'users'){
-        include_once 'views/pages/users/manage.php';
+    elseif($page == 'patients'){
+        include_once 'views/pages/patients/manage.php';
     }
-    elseif($page == 'create-user'){
-        include_once('views/pages/users/create.php');
-        
+    elseif($page == 'create-patient'){
+        include_once('views/pages/patients/create.php');     
     }
-    elseif($page == 'edit-user'){
-        include_once('views/pages/users/edit.php');
-        
+    elseif($page == ''){
+        include_once('views/pages/patients/edit.php');    
     }
     else{
         include_once 'views/pages/dashboard.php';
