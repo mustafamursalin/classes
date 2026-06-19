@@ -21,6 +21,15 @@ if(isset($_GET['page'])){
     elseif($page == 'edit-patient'){
         include_once('views/pages/patients/edit.php');
     }
+    elseif($page == 'doctors'){
+        include_once 'views/pages/doctors/manage.php';
+    }
+    elseif($page == 'create-doctor'){
+        include_once('views/pages/doctors/create.php');
+    }
+    elseif($page == 'edit-doctor'){
+        include_once('views/pages/doctors/edit.php');
+    }
     else{
         include_once 'views/pages/dashboard.php';
     }

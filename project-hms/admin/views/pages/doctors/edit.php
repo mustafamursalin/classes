@@ -1,7 +1,8 @@
 
 <?php
-require_once 'models/patient.class.php';
-require_once 'models/gender.class.php';
+require_once 'models/doctor.class.php';
+require_once 'models/department.class.php';
+
 
 /* 
   *-------------------------------------------------------------------------
@@ -11,22 +12,21 @@ require_once 'models/gender.class.php';
 if(isset($_POST['btn-submit'])){
   $id = $_POST['id'];
   $name = $_POST['name'];
-  $age = $_POST['age'];
-  $gender = $_POST['gender'];
+  $dept_id = $_POST['dept_id'];
+  $specialization = $_POST['specialization'];
   $phone = $_POST['phone'];
-  $address = $_POST['address'];
-  // echo  $name . $age . $gender . $phone . $address;
+  $email = $_POST['email'];
 
 
 /* 
   *-------------------------------------------------------------------------
-  * From Patient Class
+  * From doctor Class
   *-------------------------------------------------------------------------
 */
-  $patient = new Patient($id, $name, $age, $gender, $phone, $address);
-  $res = $patient->update();
+  $doctor = new doctor($id, $dept_id, $name, $specialization, $phone, $email);
+  $res = $doctor->update();
       if($res === true){
-      $msg = "Patient Update Successfully";
+      $msg = "Doctor Update Successfully";
       
     }else{
       $msg = $res;
@@ -35,21 +35,21 @@ if(isset($_POST['btn-submit'])){
 
 /* 
   *-------------------------------------------------------------------------
-  * From Gender Class
+  * From department Class
   *-------------------------------------------------------------------------
 */
-  $genders = Gender::readAll();
+  $departments = department::readAll();
       // echo '<pre>';
-      // print_r($genders);
+      // print_r($departments);
       // echo '</pre>';
 
 /* 
   *-------------------------------------------------------------------------
-  * From Patient Class
+  * From doctor Class
   *-------------------------------------------------------------------------
 */
   if(isset($_GET['id'])){
-    $row = Patient::readById($_GET['id']); 
+    $row = doctor::readById($_GET['id']); 
       // echo '<pre>';
       // print_r($row);
       // echo '</pre>';
@@ -64,7 +64,7 @@ if(isset($_POST['btn-submit'])){
 
     <div class="main-content-container overflow-hidden">
         <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
-            <h3 class="mb-0">Edit Patient</h3>
+            <h3 class="mb-0">Edit doctor</h3>
         </div>
 
         <!-- Message -->
@@ -76,7 +76,7 @@ if(isset($_POST['btn-submit'])){
         <?php endif; ?>
        
         <!--Prev Button  -->
-        <a href="patients"><button class="btn btn-secondary py-2 px-4 fw-medium fs-16 mb-3" type="submit" name="btn-submit"> <i class="ri-arrow-left-long-line"></i> Back</button></a>
+        <a href="doctors"><button class="btn btn-secondary py-2 px-4 fw-medium fs-16 mb-3" type="submit" name="btn-submit"> <i class="ri-arrow-left-long-line"></i> Back</button></a>
 
         <div class="card bg-white border-0 rounded-3 mb-4">
             <div class="card-body p-4">
@@ -89,30 +89,27 @@ if(isset($_POST['btn-submit'])){
                     <div class="row">
                         <div class="col-lg-12 col-sm-12">
                             <div class="form-group mb-4">
-                                <label class="label text-secondary">Patient Name</label>
+                                <label class="label text-secondary">Doctor Name</label>
                                 <input type="text" name="name"  class="form-control h-60 border-border-color" value="<?= $row['name']; ?>"  >
                             </div>
                         </div>
                         <div class="col-lg-12 col-sm-12">
                             <div class="form-group mb-4">
-                                <label class="label text-secondary">Age</label>
-                                <input type="number" name="age" class="form-control h-60 border-border-color" value="<?= $row['age']; ?>"  >
+                                <label class="label text-secondary">Specialty</label>
+                                <input type="text" name="specialization" class="form-control h-60 border-border-color" value="<?= $row['specialization']; ?>"  >
                             </div>
                         </div>
                         <div class="col-lg-12 col-sm-12">
                             <div class="form-group mb-4">
-                                <label class="label text-secondary">Gender</label>
-                                <select class="form-control h-60 border-border-color" name="gender">
+                                <label class="label text-secondary">Depertment</label>
+                                <select class="form-control h-60 border-border-color" name="dept_id">
 
-                                // Gender List(Dropdown)
-                                <?php foreach($genders as $gender) : 
-                                  $selected = $gender['id'] == $row['gender_id'] ? 'selected' : '';  
+                                <!-- Department List(Dropdown) -->
+                                <?php foreach($departments as $department) : 
+                                  $selected = $department['id'] == $row['department_id'] ? 'selected' : '';  
                                 ?>
                                   
-                                  <option value="<?= $gender['id'] ?>" <?= $selected ?>>  
-                                  <?= $gender['name'] ?>
-                                  </option>
-
+                                  <option value="<?= $department['id'] ?>"> <?= $department['name'] ?></option>
                                 <?php endforeach; ?>
                               </select>
                             </div>
@@ -124,17 +121,17 @@ if(isset($_POST['btn-submit'])){
                             </div>
                         </div>
 
-                        <div class="col-lg-12">
-                          <div class="form-group mb-4">
-                              <label class="label text-secondary">Address</label>
-                              <textarea name="address" rows="3" class="form-control"><?= htmlspecialchars($row['address']) ?></textarea>
-                          </div>
-                      </div>
+                        <div class="col-lg-12 col-sm-12">
+                            <div class="form-group mb-4">
+                                <label class="label text-secondary">Email</label>
+                                <input type="email" name="email" class="form-control h-60 border-border-color" value="<?= $row['email'];?>">
+                            </div>
+                        </div>
 
                         <div class="col-lg-12">
                             <div class="d-flex flex-wrap gap-3">
                                 <!-- <button class="btn btn-danger py-2 px-4 fw-medium fs-16 text-white">Cancel</button> -->
-                                <button class="btn btn-primary py-2 px-4 fw-medium fs-16" type="submit" name="btn-submit"> <i class="ri-edit-2-line"></i> Update Patient</button>
+                                <button class="btn btn-primary py-2 px-4 fw-medium fs-16" type="submit" name="btn-submit"> <i class="ri-add-line text-white fw-medium"></i> Add doctor</button>
                             </div>
                         </div>
                     </div>

@@ -29,20 +29,20 @@
                 
                     </li>
                     <li class="menu-item open">
-                        <a href="roles" class="menu-link ">
+                        <a href="doctors" class="menu-link ">
                             <span class="material-symbols-outlined menu-icon">medical_services</span>
                             <span class="title">Doctors </span>
                         </a>
                 
                     </li>
                     <li class="menu-item">
-                        <a href="form" class="menu-link">
+                        <a href="appointments" class="menu-link">
                             <span class="material-symbols-outlined menu-icon">calendar_month</span>
                             <span class="title">Appointments </span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="table" class="menu-link">
+                        <a href="billings" class="menu-link">
                             <span class="material-symbols-outlined menu-icon">receipt_long</span>
                             <span class="title">Billings </span>
                         </a>

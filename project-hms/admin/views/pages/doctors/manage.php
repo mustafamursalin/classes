@@ -1,19 +1,19 @@
 
 <?php
-require_once 'models/patient.class.php';
-require_once 'models/gender.class.php';
+require_once 'models/doctor.class.php';
+require_once 'models/department.class.php';
 
 /* 
   *-------------------------------------------------------------------------
-  * Delete From Patient list
+  * Delete From doctor list
   *-------------------------------------------------------------------------
 */
 if(isset($_POST['delete_id'])){
   $id = $_POST['delete_id'];
-  $res = Patient::delete($id);
+  $res = doctor::delete($id);
 
   if($res === true){
-      $msg = "Patient Deleted Successfully";
+      $msg = "Doctor Deleted Successfully";
     }else{
       $msg = $res;
     }
@@ -21,10 +21,10 @@ if(isset($_POST['delete_id'])){
 
 /* 
   *-------------------------------------------------------------------------
-  * Patient Registration
+  * doctor Registration
   *-------------------------------------------------------------------------
 */
-$rows = Patient::readAll();
+$rows = doctor::readAll();
 // echo '<pre>';
 // print_r($rows);
 // echo '</pre>';
@@ -36,7 +36,7 @@ $rows = Patient::readAll();
 <!-- Start Main Content Area -->
 <div class="main-content-container overflow-hidden">
 <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
-    <h3 class="mb-0">Patients List</h3>
+    <h3 class="mb-0">Doctors List</h3>
 
     <!-- <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb align-items-center mb-0 lh-1">
@@ -50,7 +50,7 @@ $rows = Patient::readAll();
                 <span class="fw-medium">Doctors</span>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <span class="fw-medium">Patients List</span>
+                <span class="fw-medium">doctors List</span>
             </li>
         </ol>
     </nav> -->
@@ -73,10 +73,10 @@ $rows = Patient::readAll();
                     <i class="material-symbols-outlined position-relative top-2 pe-3">search</i>
                 </button>
             </form> -->
-            <a href="create-patient" class="btn btn-outline-primary fs-14 fw-medium rounded-3 hover-bg" style="padding: 1.5px 13px;">
+            <a href="create-doctor" class="btn btn-outline-primary fs-14 fw-medium rounded-3 hover-bg" style="padding: 1.5px 13px;">
                 <span class="py-sm-1 d-block">
                     <i class="ri-add-line d-none d-sm-inline-block fs-18 position-relative top-1"></i>
-                    <span>Patient List</span>
+                    <span>doctor List</span>
                 </span>
             </a>
         </div> 
@@ -95,19 +95,19 @@ $rows = Patient::readAll();
                                 </span>
                             </th>
                             <th scope="col" style="padding-top: 9.5px; padding-bottom: 9.5px;">
-                                <span class="text-body-color-50 fs-14 fw-medium">Patient Name</span>
+                                <span class="text-body-color-50 fs-14 fw-medium">Doctor Name</span>
                             </th>
                             <th scope="col" style="padding-top: 9.5px; padding-bottom: 9.5px;">
-                                <span class="text-body-color-50 fs-14 fw-medium">Age</span>
+                                <span class="text-body-color-50 fs-14 fw-medium">Specialty</span>
                             </th>
                             <th scope="col" style="padding-top: 9.5px; padding-bottom: 9.5px;">
-                                <span class="text-body-color-50 fs-14 fw-medium">Gender</span>
+                                <span class="text-body-color-50 fs-14 fw-medium">Depertment</span>
                             </th>
                             <th scope="col" style="padding-top: 9.5px; padding-bottom: 9.5px;">
                                 <span class="text-body-color-50 fs-14 fw-medium">Phone</span>
                             </th>
                             <th scope="col" style="padding-top: 9.5px; padding-bottom: 9.5px;">
-                                <span class="text-body-color-50 fs-14 fw-medium">Address</span>
+                                <span class="text-body-color-50 fs-14 fw-medium">Email</span>
                             </th>
                             <th scope="col" style="padding-top: 9.5px; padding-bottom: 9.5px;">
                                 <span class="text-body-color-50 fs-14 fw-medium">Create Date</span>
@@ -135,10 +135,10 @@ $rows = Patient::readAll();
                                     </div>
                                 </a>
                             </td>
-                            <td class="text-primary fs-12 fw-normal" style="padding-top: 17px; padding-bottom: 17px;"><?= $item['age'] ?></td>
-                            <td class="text-body-color-50 fs-12 fw-semibold" style="padding-top: 17px; padding-bottom: 17px;"><?= $item['gender_name'] ?></td>
+                            <td class="text-primary fs-12 fw-normal" style="padding-top: 17px; padding-bottom: 17px;"><?= $item['specialization'] ?></td>
+                            <td class="text-body-color-50 fs-12 fw-semibold" style="padding-top: 17px; padding-bottom: 17px;"><?= $item['department'] ?></td>
                             <td class="text-body-color-50 fs-12 fw-semibold" style="padding-top: 17px; padding-bottom: 17px;"><?= $item['phone'] ?></td>
-                            <td class="text-body-color-50 fs-12 fw-semibold" style="padding-top: 17px; padding-bottom: 17px;"><?= $item['address'] ?></td>
+                            <td class="text-body-color-50 fs-12 fw-semibold" style="padding-top: 17px; padding-bottom: 17px;"><?= $item['email'] ?></td>
                             <td class="text-body-color-50 fs-12 fw-semibold" style="padding-top: 17px; padding-bottom: 17px;"><?= $item['created_at'] ?></td>
                             <td style="padding-top: 17px; padding-bottom: 17px;">
                                 <div class="d-flex align-items-center gap-1">
@@ -146,12 +146,12 @@ $rows = Patient::readAll();
                                         <i class="material-symbols-outlined fs-18 text-primary">visibility</i>
                                     </button>
 
-                                    <!-- Patient Edit Button -->
-                                    <a href="edit-patient?id=<?= $item['id'] ?>"><button class="ps-0 border-0 bg-transparent lh-1 position-relative top-2">
+                                    <!-- doctor Edit Button -->
+                                    <a href="edit-doctor?id=<?= $item['id'] ?>"><button class="ps-0 border-0 bg-transparent lh-1 position-relative top-2">
                                         <i class="material-symbols-outlined fs-18 text-body">edit</i>
                                     </button></a>
 
-                                    <!-- Patient Delete Button -->
+                                    <!-- doctor Delete Button -->
                                     <form method="POST">
                                     <input type="hidden" name="delete_id" value="<?= $item['id'] ?>">
                                     <button type="submit" class="ps-0 border-0 bg-transparent lh-1 position-relative top-2">

@@ -1,46 +1,46 @@
 <?php
 
-class Patient
+class Doctor
 {
     public $id;
+    public $dept_id ;
     public $name;
-    public $age;
-    public $gender_id;
+    public $specialization;
     public $phone;
-    public $address;
+    public $email;
     public $created_at;
 
-    public function __construct($_id, $_name, $_age, $_gender_id, $_phone, $_address, $_created_at = null) {
+    public function __construct($_id, $_dept_id , $_name, $_specialization, $_phone, $_email, $_created_at = null) {
         $this->id         = $_id;
+        $this->dept_id        = $_dept_id ;
         $this->name       = $_name;
-        $this->age        = $_age;
-        $this->gender_id  = $_gender_id;
+        $this->specialization  = $_specialization;
         $this->phone      = $_phone;
-        $this->address    = $_address;
+        $this->email    = $_email;
         $this->created_at = $_created_at ?? date('Y-m-d H:i:s');
     }
 
     // =============================================
-    // CREATE - new patient insert 
+    // CREATE - new doctor insert 
     // =============================================
     public function create() {
         global $db;
 
-        $sql = "INSERT INTO patients 
+        $sql = "INSERT INTO doctors 
                 (
+                dept_id, 
                 name, 
-                age, 
-                gender_id, 
+                specialization, 
                 phone, 
-                address
+                email
                 ) 
                 VALUES 
                 (
+                '$this->dept_id',
                 '$this->name',
-                '$this->age',
-                '$this->gender_id',
+                '$this->specialization',
                 '$this->phone',
-                '$this->address'
+                '$this->email'
                 )";
 
         $db->query($sql);
@@ -53,17 +53,17 @@ class Patient
     }
 
     // =============================================
-    // UPDATE - existing patient data update 
+    // UPDATE - existing doctor data update 
     // =============================================
     public function update() {
         global $db;
 
-        $sql = "UPDATE patients SET 
-                    name            = '$this->name', 
-                    age             = '$this->age', 
-                    gender_id       = '$this->gender_id', 
-                    phone           = '$this->phone', 
-                    address         = '$this->address' 
+        $sql = "UPDATE doctors SET 
+                    dept_id                 = '$this->dept_id', 
+                    name                    = '$this->name', 
+                    specialization          = '$this->specialization', 
+                    phone                   = '$this->phone', 
+                    email                   = '$this->email' 
                 WHERE id = $this->id";
 
 
@@ -80,41 +80,43 @@ class Patient
     }
 
     // =============================================
-    // READ ALL - all patient list 
+    // READ ALL - all doctor list 
     // =============================================
     static public function readAll() {
         global $db;
 
-        $sql    = "SELECT p.id, p.name, p.age, g.name AS gender_name, p.phone, p.address, p.created_at 
-                   FROM patients AS p , genders AS g
-                   WHERE p.gender_id = g.id 
-                   ORDER BY p.id DESC";
+        $sql    = "SELECT doc.id, doc.name, doc.specialization, doc.phone, doc.email, doc.created_at, dept.name AS department 
+                   FROM doctors AS doc, departments AS dept
+                   WHERE doc.dept_id = dept.id
+                   ORDER BY doc.id DESC";
+
         $result = $db->query($sql);
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     // =============================================
-    // READ BY ID - spesafic patient  data 
+    // READ BY ID - spesafic doctor  data 
     // =============================================
     static public function readByID($_id) {
         global $db;
 
-        $sql    = "SELECT id, name, age, gender_id, phone, address, created_at 
-                   FROM patients 
+        $sql    = "SELECT id, dept_id, name, specialization, phone, email, created_at 
+                   FROM doctors 
                    WHERE id = $_id";
+                   
         $result = $db->query($sql);
 
-        return $result->fetch_assoc(); // single row return 
+        return $result->fetch_assoc(); 
     }
 
     // =============================================
-    // DELETE - patient delete 
+    // DELETE - doctor delete 
     // =============================================
     static public function delete($_id) {
         global $db;
 
-        $db->query("DELETE FROM patients WHERE id = $_id");
+        $db->query("DELETE FROM doctors WHERE id = $_id");
 
         if ($db->error) {
             return $db->error;
