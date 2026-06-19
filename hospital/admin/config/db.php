@@ -1,6 +1,6 @@
 <?php
 $host     = 'localhost';
-$dbname   = 'hospital_db';
+$dbname   = 'hospital';
 $username = 'root';
 $password = '';  // XAMPP এ default password নেই
 

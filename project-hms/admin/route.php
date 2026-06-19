@@ -16,10 +16,10 @@ if(isset($_GET['page'])){
         include_once 'views/pages/patients/manage.php';
     }
     elseif($page == 'create-patient'){
-        include_once('views/pages/patients/create.php');     
+        include_once('views/pages/patients/create.php');
     }
-    elseif($page == ''){
-        include_once('views/pages/patients/edit.php');    
+    elseif($page == 'edit-patient'){
+        include_once('views/pages/patients/edit.php');
     }
     else{
         include_once 'views/pages/dashboard.php';

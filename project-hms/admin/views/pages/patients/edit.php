@@ -69,7 +69,6 @@ if(isset($_POST['btn-submit'])){
         if(!$row){  // if data not found
         $not_found = true;
     }
-  
   }
 
 ?>
@@ -136,12 +135,13 @@ if(isset($_POST['btn-submit'])){
                                 <input type="number" name="phone" class="form-control h-60 border-border-color" value="<?= $row['phone']; ?>"  >
                             </div>
                         </div>
+
                         <div class="col-lg-12">
-                            <div class="form-group mb-4">
-                                <label class="label text-secondary">Address</label>
-                                <textarea name="address" rows="3" class="form-control" value="<?= $row['address']; ?>"  ></textarea>
-                            </div>
-                        </div>
+                          <div class="form-group mb-4">
+                              <label class="label text-secondary">Address</label>
+                              <textarea name="address" rows="3" class="form-control"><?= htmlspecialchars($row['address']) ?></textarea>
+                          </div>
+                      </div>
 
                         <div class="col-lg-12">
                             <div class="d-flex flex-wrap gap-3">
