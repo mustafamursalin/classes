@@ -21,7 +21,7 @@ if(isset($_POST['delete_id'])){
 
 /* 
   *-------------------------------------------------------------------------
-  * doctor Registration
+  * Doctor Registration
   *-------------------------------------------------------------------------
 */
 $rows = doctor::readAll();
@@ -37,23 +37,6 @@ $rows = doctor::readAll();
 <div class="main-content-container overflow-hidden">
 <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
     <h3 class="mb-0">Doctors List</h3>
-
-    <!-- <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-        <ol class="breadcrumb align-items-center mb-0 lh-1">
-            <li class="breadcrumb-item">
-                <a href="#" class="d-flex align-items-center text-decoration-none">
-                    <i class="ri-home-4-line fs-18 text-primary me-1"></i>
-                    <span class="text-secondary fw-medium hover">Dashboard</span>
-                </a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-                <span class="fw-medium">Doctors</span>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-                <span class="fw-medium">doctors List</span>
-            </li>
-        </ol>
-    </nav> -->
 </div>
 
 <!-- Message -->
@@ -67,16 +50,10 @@ $rows = doctor::readAll();
 <div class="card bg-white border-0 rounded-3 mb-4">
     <div class="card-body p-20">
         <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-20">
-            <!-- <form class="position-relative table-src-form me-0">
-                <input type="text" class="form-control bg-body-bg border-body-bg ps-3" style="width: 260px; height: 40px;" placeholder="Search here.....">
-                <button class="bg-transparent p-0 pe-3 lh-1 border-0 position-absolute top-50 end-0 translate-middle-y text-primary" type="button">
-                    <i class="material-symbols-outlined position-relative top-2 pe-3">search</i>
-                </button>
-            </form> -->
             <a href="create-doctor" class="btn btn-outline-primary fs-14 fw-medium rounded-3 hover-bg" style="padding: 1.5px 13px;">
                 <span class="py-sm-1 d-block">
                     <i class="ri-add-line d-none d-sm-inline-block fs-18 position-relative top-1"></i>
-                    <span>doctor List</span>
+                    <span>Add New Doctor</span>
                 </span>
             </a>
         </div> 
@@ -89,7 +66,6 @@ $rows = doctor::readAll();
                             <th scope="col" style="padding-top: 9.5px; padding-bottom: 9.5px;">
                                 <span class="text-body-color-50 fs-14 fw-medium">
                                     <div class="form-check d-flex align-items-center">
-                                        <!-- <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1"> -->
                                         <label class="position-relative top-2 ms-2" for="flexCheckDefault1">ID</label>
                                     </div>
                                 </span>
@@ -123,7 +99,6 @@ $rows = doctor::readAll();
                         <tr>
                             <td style="padding-top: 17px; padding-bottom: 17px;">
                                 <div class="form-check d-flex align-items-center">
-                                    <!-- <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2"> -->
                                     <label class="position-relative top-2 ms-2 fw-semibold fs-12" for="flexCheckDefault2"><?= $item['id'] ?></label>
                                 </div>
                             </td>

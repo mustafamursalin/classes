@@ -30,7 +30,7 @@
 		<!-- Favicon -->
 		<link rel="icon" type="image/png" href="assets/images/favicon.png">
 		<!-- Title -->
-		<title>Hospital Management System</title>
+		<title>City Hospital</title>
     </head>
     <body class="boxed-size">
 		<!-- Start Main Content Area -->

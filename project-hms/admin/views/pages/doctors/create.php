@@ -107,23 +107,6 @@ if(isset($_POST['btn-submit'])){
                                 <input type="email" name="email" class="form-control h-60 border-border-color" placeholder="Your Email">
                             </div>
                         </div>
-                        <!-- <div class="col-lg-12">
-                            <div class="mb-4">
-                                <label class="label text-secondary">Add Avatar</label>
-                                <div class="d-fslex align-items-center">
-                                    <div class="avatar-upload mw-100">
-                                        <div class="mb-2">
-                                            <input type="file" id="imageUpload" class="form-control h-60" accept=".png, .jpg, .jpeg" style="padding-top: 18px;">
-                                        </div>
-                                        <span class="fs-12 mb-4 d-block">Please upload your image with a size of 135 x 135</span>
-                                        <div class="avatar-preview rounded-circle border-0">
-                                            <div id="imagePreview" class="rounded-circle" style="background-image: url(assets/images/user-144.png);"></div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="col-lg-12">
                             <div class="d-flex flex-wrap gap-3">
                                 <!-- <button class="btn btn-danger py-2 px-4 fw-medium fs-16 text-white">Cancel</button> -->
