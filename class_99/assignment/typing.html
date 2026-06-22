@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>typing - Input, keypress event, val()</title>
+</head>
+<body>
+    <form>
+        <h4>Type here your text</h4>
+        <input type="text" name="input" value="">
+        <h5></h5>
+    </form>
+
+    <script src="jquery-4.0.0.min.js"></script>
+    <script>
+        let type = $("input")
+        type.keydown(function(){
+            let inputValue = type.val();
+            // console.log(inputValue);
+            $("h5").text(inputValue);
+        });
+
+    </script>
+</body>
+</html>

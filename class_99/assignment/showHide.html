@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/Hide - button, click event, attr method</title>
+</head>
+<body>
+    <input type="password" name="username" data-customUser=" " value="password_1245">
+    <button>Show / Hide</button>
+
+    <script src="jquery-4.0.0.min.js"></script>
+    <script>
+
+
+        $("button").click(function(){
+            let typeValue = $("input").attr("type");
+            console.log(typeValue);
+
+            if( typeValue == "password"){
+                $("input").attr("type","text");
+            }else{
+                $("input").attr("type","password");
+            }
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery - ADD LIST</title>
+</head>
+<body>
+
+    <input type="text">
+    <button class="add_list">Add Skill</button>
+    <h4>Skills :</h4>
+    <ul>
+      <li>HTML (Hypertext Markup Language)</li>
+      <li>CSS </li>
+      <li>JS </li>
+    </ul>
+
+<script src="jquery-4.0.0.min.js"></script>
+<script>
+
+    $("button").click(function(){
+        let inputValue =  $("input").val();
+        console.log(inputValue);
+
+        $("ul").append(`<li> ${inputValue} </li>`);
+    });
+
+</script>  
+</body>
+</html>
